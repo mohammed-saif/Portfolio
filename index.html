@@ -3,7 +3,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-
+    <script>
+      // Check if coming from a redirect
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content="Framer 013b13c" />
     <title>M Saif | Game Developer</title>
